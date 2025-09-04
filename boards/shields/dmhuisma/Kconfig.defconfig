@@ -1,0 +1,21 @@
+
+if SHIELD_SPLITCORE_RIGHT
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "Splitcore KB"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_SPLITCORE_LEFT || SHIELD_SPLITCORE_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config SPI
+    default y
+
+endif

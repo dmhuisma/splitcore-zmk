@@ -1,0 +1,6 @@
+.vscode/tasks.json
+.vscode/settings.json
+
+dongle.zip
+settings_erase_dongle.sh
+flash_dongle.sh

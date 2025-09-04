@@ -1,0 +1,4 @@
+name: zmk-keyboard-splitcore
+build:
+  settings:
+    board_root: .
