@@ -10,30 +10,12 @@
         // direct GPIO driver for dpad buttons
         direct_left {
             kscan = <&kscan2>;
-            row-offset = <5>;
+            row-offset = <6>;
         };
     };
 
     kscan1: kscan1 {
         status = "okay";
-
-        col-gpios
-            = <&shifter 0   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 1   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 2   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 3   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 4   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 5   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 6   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 7   (GPIO_ACTIVE_HIGH)>
-            ;
-            
-        row-gpios
-            = <&gpio0 31    (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 29    (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 2     (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 15    (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
     };
 
     // dpad buttons
@@ -42,10 +24,10 @@
         wakeup-source;
         status = "okay";
         input-gpios
-            = <&gpio1 0     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 11    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 4     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 6     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            = <&gpio1 13    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 11    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 10    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 9     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
     };
 };

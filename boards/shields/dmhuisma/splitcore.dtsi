@@ -12,7 +12,7 @@
         compatible = "zmk,kscan-composite";
         status = "okay";
         columns = <16>;
-        rows = <5>;
+        rows = <6>;
     };
 
     // key matrix
@@ -21,12 +21,31 @@
         diode-direction = "col2row";
         wakeup-source;
         status = "disabled";
+
+        col-gpios
+            = <&shifter 0   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 1   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 2   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 3   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 4   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 5   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 6   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 7   (GPIO_ACTIVE_HIGH)>
+            ;
+            
+        row-gpios
+            = <&gpio0 31    (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 29    (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 2     (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 15    (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 7     (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
     };
 
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <16>;
-        rows = <5>;
+        rows = <6>;
 
         // key matrix, fingers and thumb clusters, rows 0 - 4
         // dpad and RKJXT1F42001 buttons, row 5
@@ -36,13 +55,13 @@
             RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)                     RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12) RC(2,13)
             RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                     RC(3,8) RC(3,9) RC(3,10) RC(3,11) RC(3,12) RC(3,13)
                             RC(3,6) RC(3,7)                                                     RC(3,14) RC(3,15)
+                                                    RC(4,0) RC(4,1)     RC(4,9)  RC(4,8)
+                                            RC(4,6)         RC(4,2)     RC(4,10)          RC(4,14)
+                                            RC(4,5) RC(4,4) RC(4,3)     RC(4,11) RC(4,12) RC(4,13)
 
-                                            RC(2,6)         RC(0,6)     RC(0,14)          RC(2,14)
-                                            RC(2,7) RC(1,6) RC(0,7)     RC(0,15) RC(1,14) RC(2,15)
-
-                                                    RC(4,0)                      RC(4,8)
-                                            RC(4,2)         RC(4,3)     RC(4,10) RC(4,12) RC(4,11)
-                                                    RC(4,1)                      RC(4,9)
+                                                    RC(5,0)                      RC(5,8)
+                                            RC(5,2)         RC(5,3)     RC(5,10) RC(5,12) RC(5,11)
+                                                    RC(5,1)                      RC(5,9)
         >;
     };
 
@@ -63,9 +82,26 @@
     };
 };
 
+&pinctrl {
+    // spi for the nice view display and shift registers, same spi1 on both boards
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 0)>;
+        };
+    };
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 0)>;
+            low-power-enable;
+        };
+    };
+};
+
 &spi1 {
     status = "okay";
-    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
 
     shifter: 595@0 {
         compatible = "zmk,gpio-595";

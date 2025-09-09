@@ -4,7 +4,7 @@ WORK IN PROGRESS
 
 This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/). It is the successor to the [Dmhuisma keyboard](https://github.com/dmhuisma/dmhuisma-keyboard-zmk-module), with the main goal of reducing the height for better ergonomics, improving the thumb cluster/dpad, and better pointing capabilities.
 
-The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CugBChwSBRCAbyAnEgIgExICIAASADgeQICmi4AFSLMDCiUSBRCAYyAnEgIgExICIAASAxCwOxIJELBrIChIgowEOApAgMhdCiMSBRCAVyAnEgIgExICIAASAxCwLxIFELBfICg4CUCAkIfYAgoTEgUQgEsgJxICIBMSAiAAEgA4HQoTEgUQgD8gJxICIBMSAiAAEgA4MQofEgIgJxICIBMSBhCggAogABICEDA4MkCApouABUizAwoiEgQQECATEgoIGyAAQIKShsgDMB04RUCjkvABSPKJrKyBDBgAQOiFoK7wVUjc8KKgAQpwChASBhBAIA5AARIEIAVAATgTCiESEQiBMBDAgAJAAUiAgIz9A1ByEgoIgCAQQEABUIUBOAAKHBIPCIAwEEBAAUiAgIz9A1BaEgcIgCAgD0ABOBQYAiIKCMgBEMgBGAAgAEDXicymkDZIqY2AtvGXHAq8AQocEgUQgAMgJxICIBMSAiAAEgA4HUCApouABUizAwoeEgUQgA8gJxICIBMSAiAAEgASBRCwayAoOAlAgMhdCiASBRCAGyAnEgIgExICIAASABIFELBfICg4CkCAkIfYAgoVEgUQgCcgJxICIBMSAiAAEgA4HkAAChMSBRCAMyAnEgIgExICIAASADgyCh8SAiAnEgIgExIGEKCACiAAEgIQMDgxQICmi4AFSLMDGAFA54WgrvBVSNzuopgBEAMYhiAiBgjNARDDATgDggEDgwEAWEhgA2gAcgYoMjgKQBR4gomklLE3). It also provides the BOM for this keyboard.
+The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CugBChwSBRCAbyAnEgIgExICIAASADgeQICmi4AFSLMDCiUSBRCAYyAnEgIgExICIAASAxCwOxIJELBrIChIgowEOApAgMhdCiMSBRCAVyAnEgIgExICIAASAxCwLxIFELBfICg4CUCAkIfYAgoTEgUQgEsgJxICIBMSAiAAEgA4HQoTEgUQgD8gJxICIBMSAiAAEgA4MQofEgIgJxICIBMSBhCggAogABICEDA4MkCApouABUizAwoiEgQQECATEgoIGyAAQIKShrgCMB04RUCjkvABSPKJrKyBDBgAQOiFoK7wVUjc8KKgAQqMAQoaEhAIgDAQQEABSICAjP0DUIoBEgRAAVBrOBMKMxIRCIEwEMCAAkABSICAjP0DUHISEBAwIChAgYCADUiAjrqY+gcSCgiAIBBAQAFQhQE4AAocEg8IgDAQQEABSICAjP0DUFoSBwiAICAPQAE4FBgCIgoIyAEQyAEYACAAQNeJzKaQNkipjYC28ZccCrwBChwSBRCAAyAnEgIgExICIAASADgdQICmi4AFSLMDCh4SBRCADyAnEgIgExICIAASABIFELBrICg4CUCAyF0KIBIFEIAbICcSAiATEgIgABIAEgUQsF8gKDgKQICQh9gCChUSBRCAJyAnEgIgExICIAASADgeQAAKExIFEIAzICcSAiATEgIgABIAODIKHxICICcSAiATEgYQoIAKIAASAhAwODFAgKaLgAVIswMYAUDnhaCu8FVI3O6imAEQAxiGICIGCM0BEMMBOAOCAQODAQBYSGADaAByEigyOApAFKABAKABAKABAKABAHiCiaSUsTc=). It also provides the BOM for this keyboard.
 
 ## Features
 - Ergonomic
@@ -48,11 +48,11 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D2]** P0.17         ||
 |**[D3]** P0.20         ||
 |**[D4]** P0.22         ||
-|**[D5]** P0.24         ||
-|**[D6]** P1.00         |DPAD Up|
-|**[D7]** P0.11         |DPAD Down|
-|**[D8]** P1.04         |DPAD Left|
-|**[D9]** P1.06         |DPAD Right|
+|**[D5]** P0.24         |74HC595 SCK|
+|**[D6]** P1.00         |74HC595 MOSI|
+|**[D7]** P0.11         |74HC595 CS/RCLK|
+|**[D8]** P1.04         ||
+|**[D9]** P1.06         ||
 
 #### Nice!Nano V2 Right Side GPIO
 |                       |                                               |
@@ -66,17 +66,17 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D20]** P0.29 (ADC)  |Row 2|
 |**[D19]** P0.02 (ADC)  |Row 3|
 |**[D18]** P1.15        |Row 4|
-|**[D15]** P1.13        |74HC595 SCK|
-|**[D14]** P1.11        ||
-|**[D16]** P0.10        |74HC595 MOSI|
-|**[D10]** P0.09        |74HC595 CS/RCLK|
+|**[D15]** P1.13        |DPAD Up|
+|**[D14]** P1.11        |DPAD Down|
+|**[D16]** P0.10        |DPAD Left|
+|**[D10]** P0.09        |DPAD Right|
 
 #### Nice!Nano V2 Back GPIO
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
 |P1.01                  ||
 |P1.02                  ||
-|P1.07                  ||
+|P1.07                  |Row 5|
 
 #### Shift Register (74HC595) GPIO
 |                       |                                               |
@@ -101,12 +101,12 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D0]** P0.08         |RKJXT1F42001 Encoder B|
 |GND                    |NiceView GND|
 |GND                    |RKJXT1F42001 GND|
-|**[D2]** P0.17         ||
-|**[D3]** P0.20         ||
-|**[D4]** P0.22         |NiceView CS|
-|**[D5]** P0.24         |RKJXT1F42001 up|
-|**[D6]** P1.00         |RKJXT1F42001 down|
-|**[D7]** P0.11         |RKJXT1F42001 left|
+|**[D2]** P0.17         |Trackpoint SCL|
+|**[D3]** P0.20         |Trackpoint SDA|
+|**[D4]** P0.22         |Trackpoint Power-On-Reset|
+|**[D5]** P0.24         |74HC595 SCK, NiceView SCK|
+|**[D6]** P1.00         |74HC595 MOSI, NiceView MOSI|
+|**[D7]** P0.11         |74HC595 CS/RCLK|
 |**[D8]** P1.04         |RKJXT1F42001 right|
 |**[D9]** P1.06         |RKJXT1F42001 center|
 
@@ -122,17 +122,17 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D20]** P0.29 (ADC)  |Row 2|
 |**[D19]** P0.02 (ADC)  |Row 3|
 |**[D18]** P1.15        |Row 4|
-|**[D15]** P1.13        |74HC595 SCK, NiceView SCK|
-|**[D14]** P1.11        ||
-|**[D16]** P0.10        |74HC595 MOSI, NiceView MOSI|
-|**[D10]** P0.09        |74HC595 CS/RCLK|
+|**[D15]** P1.13        |NiceView CS|
+|**[D14]** P1.11        |RKJXT1F42001 up|
+|**[D16]** P0.10        |RKJXT1F42001 down|
+|**[D10]** P0.09        |RKJXT1F42001 left|
 
 #### Nice!Nano V2 Back GPIO
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
 |P1.01                  ||
 |P1.02                  ||
-|P1.07                  ||
+|P1.07                  |Row 5|
 
 #### Shift Register (74HC595) GPIO
 |                       |                                               |
