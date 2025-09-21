@@ -6,6 +6,8 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: infused-kim
       url-base: https://github.com/infused-kim
+    - name: nuovotaka
+      url-base: https://github.com/nuovotaka
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,6 +16,9 @@ manifest:
     # Module for PS/2 mouse & TP driver
     - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: infused-kim
+      revision: main
+    - name: zmk-pointing-acceleration-alpha
+      remote: nuovotaka
       revision: main
   self:
     path: config

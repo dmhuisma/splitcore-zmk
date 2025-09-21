@@ -25,11 +25,12 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 > west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;" -DSHIELD="splitcore_left"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;" -DSHIELD="splitcore_right nice_view"
+> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/kb_zmk_ps2_mouse_trackpoint_driver;/[path to module]/zmk-pointing-acceleration-alpha" -DSHIELD="splitcore_right nice_view"
 
-## Keyscan Matrix
+If building locally, the following external zmk modules are required on your machine:
 
-TODO
+- [kb_zmk_ps2_mouse_trackpoint_driver](https://github.com/infused-kim/kb_zmk_ps2_mouse_trackpoint_driver)
+- [zmk-pointing-acceleration-alpha](https://github.com/nuovotaka/zmk-pointing-acceleration-alpha)
 
 ## Pinout
 
@@ -50,9 +51,9 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D4]** P0.22         ||
 |**[D5]** P0.24         |74HC595 SCK|
 |**[D6]** P1.00         |74HC595 MOSI|
-|**[D7]** P0.11         |74HC595 CS/RCLK|
-|**[D8]** P1.04         ||
-|**[D9]** P1.06         ||
+|**[D7]** P0.11         ||
+|**[D8]** P1.04         |DPAD Up|
+|**[D9]** P1.06         |DPAD Down|
 
 #### Nice!Nano V2 Right Side GPIO
 |                       |                                               |
@@ -66,8 +67,8 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D20]** P0.29 (ADC)  |Row 2|
 |**[D19]** P0.02 (ADC)  |Row 3|
 |**[D18]** P1.15        |Row 4|
-|**[D15]** P1.13        |DPAD Up|
-|**[D14]** P1.11        |DPAD Down|
+|**[D15]** P1.13        |74HC595 CS/RCLK|
+|**[D14]** P1.11        ||
 |**[D16]** P0.10        |DPAD Left|
 |**[D10]** P0.09        |DPAD Right|
 
@@ -100,13 +101,13 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D1]** P0.06         |RKJXT1F42001 Encoder A|
 |**[D0]** P0.08         |RKJXT1F42001 Encoder B|
 |GND                    |NiceView GND|
-|GND                    |RKJXT1F42001 GND|
+|GND                    |Trackpoint GND, RKJXT1F42001 GND|
 |**[D2]** P0.17         |Trackpoint SCL|
 |**[D3]** P0.20         |Trackpoint SDA|
-|**[D4]** P0.22         |Trackpoint Power-On-Reset|
-|**[D5]** P0.24         |74HC595 SCK, NiceView SCK|
-|**[D6]** P1.00         |74HC595 MOSI, NiceView MOSI|
-|**[D7]** P0.11         |74HC595 CS/RCLK|
+|**[D4]** P0.22         |NiceView SCK|
+|**[D5]** P0.24         |74HC595 SCK|
+|**[D6]** P1.00         |74HC595 MOSI|
+|**[D7]** P0.11         |NiceView MOSI|
 |**[D8]** P1.04         |RKJXT1F42001 right|
 |**[D9]** P1.06         |RKJXT1F42001 center|
 
@@ -117,12 +118,12 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |Battery+               ||
 |GND                    |74HC595 GND, 74HC595 OE|
 |Reset                  ||
-|3.3V Vcc               |NiceView Vcc, 74HC595 Vcc|
+|3.3V Vcc               |Trackpoint Vcc, NiceView Vcc, 74HC595 Vcc|
 |**[D21]** P0.31 (ADC)  |Row 1|
 |**[D20]** P0.29 (ADC)  |Row 2|
 |**[D19]** P0.02 (ADC)  |Row 3|
 |**[D18]** P1.15        |Row 4|
-|**[D15]** P1.13        |NiceView CS|
+|**[D15]** P1.13        |74HC595 CS/RCLK|
 |**[D14]** P1.11        |RKJXT1F42001 up|
 |**[D16]** P0.10        |RKJXT1F42001 down|
 |**[D10]** P0.09        |RKJXT1F42001 left|
@@ -130,8 +131,8 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 #### Nice!Nano V2 Back GPIO
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
-|P1.01                  ||
-|P1.02                  ||
+|P1.01                  |NiceView CS|
+|P1.02                  |Trackpoint Power-On-Reset|
 |P1.07                  |Row 5|
 
 #### Shift Register (74HC595) GPIO

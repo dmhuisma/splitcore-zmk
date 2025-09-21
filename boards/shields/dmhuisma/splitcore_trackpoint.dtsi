@@ -66,7 +66,7 @@
 // trackpoint reset circuit.
 //
 // It's ok to use a low-frequency pin for this.
-#define MOUSE_PS2_PIN_RST_PRO_MICRO <&gpio0 22 GPIO_ACTIVE_HIGH>
+#define MOUSE_PS2_PIN_RST_PRO_MICRO <&gpio1 2 GPIO_ACTIVE_HIGH>
 
 
 // Configure SDA pin using the pinctrl notation
@@ -509,14 +509,29 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <behaviors/input_gestures_accel.dtsi>
+
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    sensitivity = <1400>;
+    acceleration-exponent = <1>;          // Mild (easier to control)
+    speed-threshold = <1200>;
+    speed-max = <6000>;
+    sensor-dpi = <800>;
+
+    y-boost = <1000>;
+    max-factor = <600>;
+    min-factor = <200>;
+};
 
 / {
     trackpoint_listener: trackpoint_listener {
         compatible = "zmk,input-listener";
-        status = "disabled";
+        status = "ok";
 
         device = <&mouse_ps2>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_scaler 0 1>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_y_scaler 2 4>,<&pointer_accel>;
 
 		// scroller {
         //     layers = <10>;  // select layer to enable

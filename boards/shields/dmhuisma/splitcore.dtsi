@@ -83,7 +83,7 @@
 };
 
 &pinctrl {
-    // spi for the nice view display and shift registers, same spi1 on both boards
+    // spi for the shift registers, same spi1 on both boards
     spi1_default: spi1_default {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
@@ -101,7 +101,7 @@
 
 &spi1 {
     status = "okay";
-    cs-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
 
     shifter: 595@0 {
         compatible = "zmk,gpio-595";
