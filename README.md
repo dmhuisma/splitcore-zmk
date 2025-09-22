@@ -25,12 +25,11 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 > west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;" -DSHIELD="splitcore_left"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/kb_zmk_ps2_mouse_trackpoint_driver;/[path to module]/zmk-pointing-acceleration-alpha" -DSHIELD="splitcore_right nice_view"
+> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/kb_zmk_ps2_mouse_trackpoint_driver;" -DSHIELD="splitcore_right nice_view"
 
 If building locally, the following external zmk modules are required on your machine:
 
 - [kb_zmk_ps2_mouse_trackpoint_driver](https://github.com/infused-kim/kb_zmk_ps2_mouse_trackpoint_driver)
-- [zmk-pointing-acceleration-alpha](https://github.com/nuovotaka/zmk-pointing-acceleration-alpha)
 
 ## Pinout
 

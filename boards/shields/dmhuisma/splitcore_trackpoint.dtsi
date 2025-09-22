@@ -509,21 +509,6 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
-#include <behaviors/input_gestures_accel.dtsi>
-
-&pointer_accel {
-    input-type = <INPUT_EV_REL>;
-    codes = <INPUT_REL_X INPUT_REL_Y>;
-    sensitivity = <1400>;
-    acceleration-exponent = <1>;          // Mild (easier to control)
-    speed-threshold = <1200>;
-    speed-max = <6000>;
-    sensor-dpi = <800>;
-
-    y-boost = <1000>;
-    max-factor = <600>;
-    min-factor = <200>;
-};
 
 / {
     trackpoint_listener: trackpoint_listener {
@@ -531,19 +516,12 @@
         status = "ok";
 
         device = <&mouse_ps2>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_y_scaler 2 4>,<&pointer_accel>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_scaler 1 2>;
 
-		// scroller {
-        //     layers = <10>;  // select layer to enable
-        //     //process-next;
-        //     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_scaler 1 8>,<&zip_xy_to_scroll_mapper>;
-        // };
-        // mouse {
-        //     layers = <9>;   // select layer to enable
-        //     input-processors = 
-        //         <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>
-        //         //, <&zip_temp_layer 9 500>
-        //         ;
-        // };
+		scroller {
+            layers = <3>;  // select layer to enable
+            //process-next;
+            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_scaler 1 4>,<&zip_xy_to_scroll_mapper>;
+        };
     };
 };

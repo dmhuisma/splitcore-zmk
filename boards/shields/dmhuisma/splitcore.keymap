@@ -6,8 +6,8 @@
 
 #define BASE         	0
 #define GAME            1
-#define FUNCTION        2
-#define SYMBOL        	3
+#define RAISE           2
+#define LOWER        	3
 
 #define HAS_MOUSE_TP
 #define USE_HOMEROW_MODS
@@ -81,7 +81,7 @@
                                                                                                 
 																								&mkp LCLK      	&mkp RCLK             	&vscode_task  	&mkp MCLK
                                                                                 &kp SPACE                       &kp TAB           		&kp DELETE                      &kp BACKSPACE
-                                                                                &kp ESCAPE  	&mo SYMBOL   	&kp LEFT_META           &kp RALT      &mo FUNCTION   	&kp LSHIFT
+                                                                                &kp ESCAPE  	&mo LOWER   	&kp LEFT_META           &kp RALT        &mo RAISE   	&kp LSHIFT
 
                                                                                                 &kp UP_ARROW                                            &kp K_MUTE
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW         &kp K_PREVIOUS  &none           &kp K_NEXT
@@ -104,7 +104,7 @@
 
 																								&none      		&none             		&trans  		&trans
                                                                                 &kp F5                         	&kp F6           		&trans                      	&trans
-                                                                                &kp F7       	&kp F8      	&kp F9              	&trans        	&mo FUNCTION   	&trans
+                                                                                &kp F7       	&kp F8      	&kp F9              	&trans        	&mo RAISE   	&trans
             
                                                                                                 &kp F1                                            		&trans
                                                                                 &kp F3                  		&kp F4         			&trans  		&trans       	&trans
@@ -114,14 +114,14 @@
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-		function_layer {
-            display-name = "Function";
+		raise_layer {
+            display-name = "Raise";
             bindings = <
                 &studio_unlock  &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
-                &trans          &trans          &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &trans                                                  &kp SCROLLLOCK  &trans          &trans          &trans          &trans          &trans
-                                                &trans          &kp NUMBER_0                                                                                                            &trans          &trans
+                &trans          &trans          &kp AMPS        &kp ASTRK       &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &kp DLLR        &kp PRCNT       &kp CARET       &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &kp SCROLLLOCK  &trans          &trans          &trans          &trans          &trans
+                                                &trans          &trans                                                                                                                  &trans          &trans
 
                                                                                 				&none      		&none             		&trans  		&trans
                                                                                 &trans                         	&trans           		&trans                      	&trans
@@ -135,14 +135,14 @@
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-		symbol_layer {
-            display-name = "Symbol";
+		lower_layer {
+            display-name = "Lower";
             bindings = <
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &kp AMPS        &kp ASTRK       &trans          &trans                                                  &trans          &kp LBKT        &kp RBKT        &trans          &trans          &trans
-                &trans          &trans          &kp DLLR        &kp PRCNT       &kp CARET       &trans                                                  &trans          &kp LPAR        &kp RPAR        &trans          &trans          &trans
-                &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &trans          &kp LBRC        &kp RBRC        &trans          &trans          &trans
-                                                &trans          &trans                                                                                                                  &trans          &trans
+                &trans          &trans          &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &trans                                                  &trans          &kp LBKT        &kp RBKT        &trans          &trans          &trans
+                &trans          &trans          &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &trans                                                  &trans          &kp LPAR        &kp RPAR        &trans          &trans          &trans
+                &trans          &trans          &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &trans                                                  &trans          &kp LBRC        &kp RBRC        &trans          &trans          &trans
+                                                &trans          &kp NUMBER_0                                                                                                            &trans          &trans
 
 																								&none      		&none             		&trans  		&trans
                                                                                 &trans                         	&trans           		&trans                      	&trans
