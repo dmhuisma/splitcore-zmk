@@ -124,7 +124,7 @@
                                                 &trans          &trans                                                                                                                  &trans          &trans
 
                                                                                 				&none      		&none             		&trans  		&trans
-                                                                                &trans                         	&trans           		&trans                      	&trans
+                                                                                &kp HOME                        &kp END           		&trans                      	&trans
                                                                                 &trans       	&tog GAME      	&trans              	&trans        	&trans   		&trans
             
                                                                                                 &kp UP_ARROW                                          	&trans
@@ -145,7 +145,7 @@
                                                 &trans          &kp NUMBER_0                                                                                                            &trans          &trans
 
 																								&none      		&none             		&trans  		&trans
-                                                                                &trans                         	&trans           		&trans                      	&trans
+                                                                                &trans                         	&trans           		&mkp MB4                      	&mkp MB5
                                                                                 &trans       	&trans      	&trans              	&trans        	&trans   		&trans
             
                                                                                                 &trans                                            		&trans
