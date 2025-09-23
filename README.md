@@ -1,10 +1,10 @@
 # Splitcore Keyboard ZMK Module
 
-WORK IN PROGRESS
-
 This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/). It is the successor to the [Dmhuisma keyboard](https://github.com/dmhuisma/dmhuisma-keyboard-zmk-module), with the main goal of reducing the height for better ergonomics, improving the thumb cluster/dpad, and better pointing capabilities.
 
-The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CugBChwSBRCAbyAnEgIgExICIAASADgeQICmi4AFSLMDCiUSBRCAYyAnEgIgExICIAASAxCwOxIJELBrIChIgowEOApAgMhdCiMSBRCAVyAnEgIgExICIAASAxCwLxIFELBfICg4CUCAkIfYAgoTEgUQgEsgJxICIBMSAiAAEgA4HQoTEgUQgD8gJxICIBMSAiAAEgA4MQofEgIgJxICIBMSBhCggAogABICEDA4MkCApouABUizAwoiEgQQECATEgoIGyAAQIKShrgCMB04RUCjkvABSPKJrKyBDBgAQOiFoK7wVUjc8KKgAQqMAQoaEhAIgDAQQEABSICAjP0DUIoBEgRAAVBrOBMKMxIRCIEwEMCAAkABSICAjP0DUHISEBAwIChAgYCADUiAjrqY+gcSCgiAIBBAQAFQhQE4AAocEg8IgDAQQEABSICAjP0DUFoSBwiAICAPQAE4FBgCIgoIyAEQyAEYACAAQNeJzKaQNkipjYC28ZccCrwBChwSBRCAAyAnEgIgExICIAASADgdQICmi4AFSLMDCh4SBRCADyAnEgIgExICIAASABIFELBrICg4CUCAyF0KIBIFEIAbICcSAiATEgIgABIAEgUQsF8gKDgKQICQh9gCChUSBRCAJyAnEgIgExICIAASADgeQAAKExIFEIAzICcSAiATEgIgABIAODIKHxICICcSAiATEgYQoIAKIAASAhAwODFAgKaLgAVIswMYAUDnhaCu8FVI3O6imAEQAxiGICIGCM0BEMMBOAOCAQODAQBYSGADaAByEigyOApAFKABAKABAKABAKABAHiCiaSUsTc=). It also provides the BOM for this keyboard.
+![Keyboard](assets/1.jpg)
+
+The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CugBChwSBRCAbyAnEgIgExICIAASADgeQICmi4AFSLMDCiUSBRCAYyAnEgIgExICIAASAxCwOxIJELBrIChIgowEOApAgMhdCiMSBRCAVyAnEgIgExICIAASAxCwLxIFELBfICg4CUCAkIfYAgoTEgUQgEsgJxICIBMSAiAAEgA4HQoTEgUQgD8gJxICIBMSAiAAEgA4MQofEgIgJxICIBMSBhCggAogABICEDA4MkCApouABUizAwoiEgQQECATEgoIGyAAQIKShrgCMB04RUCjkvABSPKJrKyBDBgAQOiFoK7wVUjc8KKgAQqeAQoaEhAIgDAQQEABSICAjP0DUIoBEgRAAVBrOBMKMxIRCIgwEMCAAkABSICAjP0DUHISEBAwIChAgfSgDkiAltaY+gcSCgiAIBBAQAFQhQE4AAouEg8IgDAQQEABSICAjP0DUFoSBwiAICAPQAESEBAwICRAgICgDkiAltaY+gc4FBgCIgoIyAEQyAEYACAAQNeJzKaQNkipjYC28ZccCrwBChwSBRCAAyAnEgIgExICIAASADgdQICmi4AFSLMDCh4SBRCADyAnEgIgExICIAASABIFELBrICg4CUCAyF0KIBIFEIAbICcSAiATEgIgABIAEgUQsF8gKDgKQICQh9gCChUSBRCAJyAnEgIgExICIAASADgeQAAKExIFEIAzICcSAiATEgIgABIAODIKHxICICcSAiATEgYQoIAKIAASAhAwODFAgKaLgAVIswMYAUDnhaCu8FVI3O6imAEKoAEKGhIQCIAwEEBAAkiAgJD9A1CKARIEQAJQazgUCjUSEwiBMBDAgAJAgoBgSICAkP0DUHISEBAwIChAgvSgDkiAmNag+gcSCgiAIBBAQAJQhQE4AAouEg8IgDAQQEACSICAkP0DUFoSBwiAICAPQAISEBAwICRAgICgDkiAmNag+gc4ExgDIgoIyAEQyAEYACAAQNiJzKaQNkipjfy1gZgcEAMYiyAiBgjNARDDATgDggELAMcBkAMZPAqDAQBYSGADaAByGBC9ASgyOApAFKABAKABAKABAKABAKgBS3iCiaSUsTc=). It also provides the BOM for this keyboard.
 
 ## Features
 - Ergonomic
@@ -12,12 +12,11 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
     - Concave key well
     - Thumb clusters
     - Staggered to accommodate my hand/finger sizes
-- Wireless
-- Mouse control (exact method TBD, perhaps trackpoint or joystick).
+- Trackpoint mouse control on the right side
+- [Custom DPAD](https://github.com/dmhuisma/1u_mx_dpad) on the left side for cursor navigation or gaming.
 - Display
 - Hotswappable keys
-- Potentiometer (one with directional clicking) for media controls.
-- Dpad for cursor navigation or gaming, custom design.
+- Potentiometer (with directional clicking) for media controls.
 
 ## Building
 
