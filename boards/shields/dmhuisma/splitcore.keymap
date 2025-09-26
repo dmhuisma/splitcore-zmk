@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/bt.h>
 
 #define BASE         	0
 #define GAME            1
@@ -74,9 +75,9 @@
             display-name = "Base";
             bindings = <
                 &kp GRAVE       &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5                                            &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp F12
-                &none         	&kp Q           &kp W           &kp F           &kp P           &kp B                                                   &kp J           &kp L           &kp U           &kp Y           &kp SEMICOLON   &none
-                &kp LCTRL       HR_A            HR_R            HR_S            HR_T            &kp G                                                   &kp M           HR_N            HR_E            HR_I            HR_O            &kp SINGLE_QUOTE
-                &kp BACKSLASH   &kp Z           &kp X           &kp C           &kp D           &kp V                                                   &kp K           &kp H           &kp COMMA       &kp PERIOD      &kp SLASH       &kp ENTER
+                &vscode_headersource &kp Q      &kp W           &kp F           &kp P           &kp B                                                   &kp J           &kp L           &kp U           &kp Y           &kp SEMICOLON   &none
+                &kp BACKSLASH   HR_A            HR_R            HR_S            HR_T            &kp G                                                   &kp M           HR_N            HR_E            HR_I            HR_O            &kp SINGLE_QUOTE
+                &kp LCTRL       &kp Z           &kp X           &kp C           &kp D           &kp V                                                   &kp K           &kp H           &kp COMMA       &kp PERIOD      &kp SLASH       &kp ENTER
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
                                                                                                 
 																								&mkp LCLK      	&mkp RCLK             	&vscode_task  	&mkp MCLK
@@ -96,13 +97,13 @@
         game_layer {
             display-name = "Game";
             bindings = <
-                &trans          &kp UP_ARROW    &kp DOWN_ARROW  &kp LEFT_ARROW  &kp RIGHT_ARROW &kp RIGHT_ALT                                           &trans          &trans          &trans          &trans          &trans          &trans
+                &kp GRAVE       &kp UP_ARROW    &kp DOWN_ARROW  &kp LEFT_ARROW  &kp RIGHT_ARROW &kp RIGHT_ALT                                           &trans          &trans          &trans          &trans          &trans          &trans
                 &kp PAGE_UP     &kp F16         &kp F17         &kp F18         &kp F19         &kp F20                                                 &trans          &trans          &trans          &trans          &trans          &trans
-                &kp LEFT_ALT    &kp F10         &kp F11         &kp F12         &kp F13         &kp F14                                                 &trans          &trans          &trans          &trans          &trans          &trans
+                &kp LEFT_ALT    &kp F10         &kp F11         &kp F12         &kp F13         &kp F14                                                 &trans          &mkp LCLK       &mkp RCLK       &mkp MCLK       &trans          &trans
                 &kp PAGE_DOWN   &kp F21         &kp F22         &kp F23         &kp F24         &kp LBKT                                                &trans          &trans          &trans          &trans          &trans          &trans
                                                 &kp RBKT        &kp BACKSLASH                                                                                                           &trans          &trans
 
-																								&none      		&none             		&trans  		&trans
+																								&kp HOME        &kp END             	&trans  		&trans
                                                                                 &kp F5                         	&kp F6           		&trans                      	&trans
                                                                                 &kp F7       	&kp F8      	&kp F9              	&trans        	&mo RAISE   	&trans
             
@@ -118,10 +119,10 @@
             display-name = "Raise";
             bindings = <
                 &studio_unlock  &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
-                &trans          &trans          &kp AMPS        &kp ASTRK       &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &kp AMPS        &kp ASTRK       &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &out OUT_TOG
                 &trans          &trans          &kp DLLR        &kp PRCNT       &kp CARET       &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &kp SCROLLLOCK  &trans          &trans          &trans          &trans          &trans
-                                                &trans          &trans                                                                                                                  &trans          &trans
+                &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   &bt BT_CLR
+                                                &trans          &trans                                                                                                                  &bt BT_PRV      &bt BT_NXT
 
                                                                                 				&none      		&none             		&trans  		&trans
                                                                                 &kp HOME                        &kp END           		&trans                      	&trans
@@ -168,6 +169,17 @@
                 , <&macro_release &kp LCTRL>
                 , <&macro_release &kp LSHFT>
                 , <&macro_release &kp B>
+                ;
+        };
+
+        vscode_headersource: vscode_headersource {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_press &kp O>
+                , <&macro_release &kp LALT>
+                , <&macro_release &kp O>
                 ;
         };
     };

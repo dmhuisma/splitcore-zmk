@@ -24,7 +24,8 @@ include:
     shield: splitcore_left
     artifact_name: splitcore_left
   - board: nice_nano_v2
-    shield: splitcore_right nice_view
+    shield: splitcore_right nice_view_battery
     artifact_name: splitcore_right
+    snippet: zmk-usb-logging
   - board: nice_nano_v2
     shield: settings_reset
