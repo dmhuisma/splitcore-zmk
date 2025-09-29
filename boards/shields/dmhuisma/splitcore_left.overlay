@@ -16,6 +16,17 @@
 
     kscan1: kscan1 {
         status = "okay";
+
+        col-gpios
+            = <&shifter 0   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 1   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 2   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 3   (GPIO_ACTIVE_HIGH)>
+            , <&gpio1   6   (GPIO_ACTIVE_HIGH)>         // so we can wake from deep sleep
+            , <&shifter 5   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 6   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 7   (GPIO_ACTIVE_HIGH)>
+            ;
     };
 
     // dpad buttons
@@ -24,8 +35,8 @@
         wakeup-source;
         status = "okay";
         input-gpios
-            = <&gpio1 4     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 6     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            = <&gpio0 11    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 4     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 10    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 9     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;

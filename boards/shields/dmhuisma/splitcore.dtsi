@@ -22,17 +22,6 @@
         diode-direction = "col2row";
         wakeup-source;
         status = "disabled";
-
-        col-gpios
-            = <&shifter 0   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 1   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 2   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 3   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 4   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 5   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 6   (GPIO_ACTIVE_HIGH)>
-            , <&shifter 7   (GPIO_ACTIVE_HIGH)>
-            ;
             
         row-gpios
             = <&gpio0 31    (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -61,7 +50,7 @@
                                             RC(4,5) RC(4,4) RC(4,3)     RC(4,11) RC(4,12) RC(4,13)
 
                                                     RC(5,0)                      RC(5,8)
-                                            RC(5,2)         RC(5,3)     RC(5,10) RC(5,12) RC(5,11)
+                                            RC(5,2)         RC(5,3)     RC(5,10)          RC(5,11)
                                                     RC(5,1)                      RC(5,9)
         >;
     };

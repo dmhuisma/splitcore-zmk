@@ -26,6 +26,6 @@ include:
   - board: nice_nano_v2
     shield: splitcore_right nice_view_battery
     artifact_name: splitcore_right
-    snippet: zmk-usb-logging
+    snippet: zmk-usb-logging studio-rpc-usb-uart
   - board: nice_nano_v2
     shield: settings_reset

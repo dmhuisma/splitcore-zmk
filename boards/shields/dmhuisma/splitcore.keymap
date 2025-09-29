@@ -85,7 +85,7 @@
                                                                                 &mkp RCLK  	    &mkp LCLK   	&kp ESCAPE              &kp LSHIFT      &vscode_task   	&kp RALT 
 
                                                                                                 &kp UP_ARROW                                            &kp K_MUTE
-                                                                                &kp LEFT_ARROW                  &kp RIGHT_ARROW         &kp K_PREVIOUS  &none           &kp K_NEXT
+                                                                                &kp LEFT_ARROW                  &kp RIGHT_ARROW         &kp K_PREVIOUS                  &kp K_NEXT
                                                                                                 &kp DOWN_ARROW                                          &kp K_PLAY_PAUSE
             >;
 
@@ -108,7 +108,7 @@
                                                                                 &kp F7       	&kp F8      	&kp F9              	&trans        	&trans   	    &trans
             
                                                                                                 &kp F1                                            		&trans
-                                                                                &kp F3                  		&kp F4         			&trans  		&trans       	&trans
+                                                                                &kp F3                  		&kp F4         			&trans  		                &trans
                                                                                                 &kp F2                                          		&trans
             >;
 
@@ -129,7 +129,7 @@
                                                                                 &trans       	&trans      	&trans              	&trans        	&trans   		&trans
             
                                                                                                 &kp UP_ARROW                                          	&trans
-                                                                                &kp LA(LEFT)                 	&kp LA(RIGHT)        	&trans  		&trans       	&trans
+                                                                                &kp LA(LEFT)                 	&kp LA(RIGHT)        	&trans  		                &trans
                                                                                                 &kp DOWN_ARROW                                       	&trans
             >;
 
@@ -150,7 +150,7 @@
                                                                                 &trans       	&trans      	&trans              	&trans        	&trans   		&trans
             
                                                                                                 &trans                                            		&trans
-                                                                                &trans                  		&trans         			&trans  		&trans       	&trans
+                                                                                &trans                  		&trans         			&trans  		                &trans
                                                                                                 &trans                                          		&trans
             >;
 

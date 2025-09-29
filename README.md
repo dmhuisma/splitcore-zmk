@@ -49,9 +49,9 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D4]** P0.22         ||
 |**[D5]** P0.24         |74HC595 SCK|
 |**[D6]** P1.00         |74HC595 MOSI|
-|**[D7]** P0.11         ||
-|**[D8]** P1.04         |DPAD Up|
-|**[D9]** P1.06         |DPAD Down|
+|**[D7]** P0.11         |DPAD Up|
+|**[D8]** P1.04         |DPAD Down|
+|**[D9]** P1.06         |Column 4|
 
 #### Nice!Nano V2 Right Side GPIO
 |                       |                                               |
@@ -80,14 +80,14 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 #### Shift Register (74HC595) GPIO
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
-|QA                     |Column 1|
-|QB                     |Column 2|
-|QC                     |Column 3|
-|QD                     |Column 4|
-|QE                     |Column 5|
-|QF                     |Column 6|
-|QG                     |Column 7|
-|QH                     |Column 8|
+|QA                     |Column 0|
+|QB                     |Column 1|
+|QC                     |Column 2|
+|QD                     |Column 3|
+|QE                     ||
+|QF                     |Column 5|
+|QG                     |Column 6|
+|QH                     |Column 7|
 |QH`                    ||
 
 ### Right Keyboard
@@ -107,7 +107,7 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D6]** P1.00         |74HC595 MOSI|
 |**[D7]** P0.11         |NiceView MOSI|
 |**[D8]** P1.04         |RKJXT1F42001 right|
-|**[D9]** P1.06         |RKJXT1F42001 center|
+|**[D9]** P1.06         |Column 9|
 
 #### Nice!Nano V2 Right Side GPIO
 |                       |                                               |
@@ -136,14 +136,14 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 #### Shift Register (74HC595) GPIO
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
-|QA                     |Column 1|
-|QB                     |Column 2|
-|QC                     |Column 3|
-|QD                     |Column 4|
-|QE                     |Column 5|
-|QF                     |Column 6|
-|QG                     |Column 7|
-|QH                     |Column 8|
+|QA                     |Column 8|
+|QB                     ||
+|QC                     |Column 10|
+|QD                     |Column 11|
+|QE                     |Column 12|
+|QF                     |Column 13|
+|QG                     |Column 14|
+|QH                     |Column 15|
 |QH`                    ||
 
 ### Nice!Nano V2 pinout for reference
