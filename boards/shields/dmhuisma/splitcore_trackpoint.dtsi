@@ -516,7 +516,7 @@
         status = "ok";
 
         device = <&mouse_ps2>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_scaler 1 2>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_scaler 1 6>;
 
 		scroller {
             layers = <3>;  // select layer to enable

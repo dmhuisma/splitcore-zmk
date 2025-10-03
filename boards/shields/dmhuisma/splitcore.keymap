@@ -80,9 +80,9 @@
                 &kp LCTRL       &kp Z           &kp X           &kp C           &kp D           &kp V                                                   &kp K           &kp H           &kp COMMA       &kp PERIOD      &kp SLASH       &kp ENTER
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
                                                                                                 
-																								&mo LOWER      	&kp LEFT_META           &mkp MCLK       &mo RAISE
+																								&kp ESCAPE      &kp LEFT_META           &vscode_task    &kp RALT
                                                                                 &kp SPACE                       &kp TAB           		&kp DELETE                      &kp BACKSPACE
-                                                                                &mkp RCLK  	    &mkp LCLK   	&kp ESCAPE              &kp LSHIFT      &vscode_task   	&kp RALT 
+                                                                                &mkp RCLK       &mo LOWER  	    &mkp LCLK   	        &kp LSHIFT      &mo RAISE       &mkp MCLK
 
                                                                                                 &kp UP_ARROW                                            &kp K_MUTE
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW         &kp K_PREVIOUS                  &kp K_NEXT
@@ -97,7 +97,7 @@
         game_layer {
             display-name = "Game";
             bindings = <
-                &kp GRAVE       &kp UP_ARROW    &kp DOWN_ARROW  &kp LEFT_ARROW  &kp RIGHT_ARROW &kp RIGHT_ALT                                           &trans          &trans          &trans          &trans          &trans          &trans
+                &kp GRAVE       &kp F1          &kp F2          &kp F3          &kp F4          &kp RIGHT_ALT                                           &trans          &trans          &trans          &trans          &trans          &trans
                 &kp PAGE_UP     &kp F16         &kp F17         &kp F18         &kp F19         &kp F20                                                 &trans          &trans          &trans          &trans          &trans          &trans
                 &kp LEFT_ALT    &kp F10         &kp F11         &kp F12         &kp F13         &kp F14                                                 &trans          &mkp LCLK       &mkp RCLK       &mkp MCLK       &trans          &trans
                 &kp PAGE_DOWN   &kp F21         &kp F22         &kp F23         &kp F24         &kp LBKT                                                &trans          &trans          &trans          &trans          &trans          &trans
@@ -107,9 +107,9 @@
                                                                                 &kp F5                         	&kp F6           		&trans                      	&trans
                                                                                 &kp F7       	&kp F8      	&kp F9              	&trans        	&trans   	    &trans
             
-                                                                                                &kp F1                                            		&trans
-                                                                                &kp F3                  		&kp F4         			&trans  		                &trans
-                                                                                                &kp F2                                          		&trans
+                                                                                                &kp UP_ARROW                                            &trans
+                                                                                &kp LEFT_ARROW                  &kp RIGHT_ARROW         &trans  		                &trans
+                                                                                                &kp DOWN_ARROW                                          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -124,9 +124,9 @@
                 &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   &bt BT_CLR
                                                 &trans          &trans                                                                                                                  &bt BT_PRV      &bt BT_NXT
 
-                                                                                				&tog GAME       &none             		&trans  		&trans
+                                                                                				&none           &none             		&trans  		&trans
                                                                                 &kp HOME                        &kp END           		&trans                      	&trans
-                                                                                &trans       	&trans      	&trans              	&trans        	&trans   		&trans
+                                                                                &trans       	&tog GAME     	&trans              	&trans        	&trans   		&trans
             
                                                                                                 &kp UP_ARROW                                          	&trans
                                                                                 &kp LA(LEFT)                 	&kp LA(RIGHT)        	&trans  		                &trans
