@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
-    - name: infused-kim
-      url-base: https://github.com/infused-kim
+    - name: badjeff
+      url-base: https://github.com/badjeff
     - name: dmhuisma
       url-base: https://github.com/dmhuisma
   projects:
@@ -15,7 +15,7 @@ manifest:
       import: app/west.yml
     # Module for PS/2 mouse & TP driver
     - name: kb_zmk_ps2_mouse_trackpoint_driver
-      remote: infused-kim
+      remote: badjeff
       revision: main
     - name: nice-view-battery
       remote: dmhuisma

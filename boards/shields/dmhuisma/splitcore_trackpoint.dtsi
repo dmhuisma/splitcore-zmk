@@ -510,18 +510,26 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
+#define BASE         	0
+#define GAME            1
+#define MOUSE        	2
+#define RAISE           3
+#define LOWER        	4
+
 / {
+
     trackpoint_listener: trackpoint_listener {
         compatible = "zmk,input-listener";
         status = "ok";
 
         device = <&mouse_ps2>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_scaler 1 6>;
-
+        // <&zip_temp_layer MOUSE 1000>
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 6>;
+        
 		scroller {
-            layers = <3>;  // select layer to enable
+            layers = <LOWER>;  // select layer to enable
             //process-next;
-            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,<&zip_xy_scaler 1 4>,<&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
         };
     };
 };
