@@ -509,12 +509,28 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <behaviors/input_gestures_accel.dtsi>
 
-#define BASE         	0
-#define GAME            1
-#define MOUSE        	2
-#define RAISE           3
-#define LOWER        	4
+#define QWERTY          0
+#define COLEMAK         1
+#define GAME            2
+#define MOUSE        	3
+#define RAISE           4
+#define LOWER        	5
+
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    sensitivity = <1400>;
+    acceleration-exponent = <1>;
+    speed-threshold = <1600>;
+    speed-max = <5000>;
+    sensor-dpi = <800>;
+
+    y-boost = <1000>;
+    max-factor = <3000>;
+    min-factor = <100>;
+};
 
 / {
 
@@ -524,12 +540,13 @@
 
         device = <&mouse_ps2>;
         // <&zip_temp_layer MOUSE 1000>
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 6>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 8>;
         
 		scroller {
             layers = <LOWER>;  // select layer to enable
             //process-next;
             input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
+            // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 10>, <&pointer_accel>;
         };
     };
 };

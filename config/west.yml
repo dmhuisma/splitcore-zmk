@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: dmhuisma
       url-base: https://github.com/dmhuisma
+    - name: nuovotaka
+      url-base: https://github.com/nuovotaka
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,6 +21,9 @@ manifest:
       revision: main
     - name: nice-view-battery
       remote: dmhuisma
+      revision: main
+    - name: zmk-pointing-acceleration-alpha
+      remote: nuovotaka
       revision: main
   self:
     path: config
