@@ -1,0 +1,61 @@
+#include "splitcore.dtsi"
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <behaviors/input_gestures_accel.dtsi>
+
+#define QWERTY          0
+#define COLEMAK         1
+#define GAME            2
+#define MOUSE        	3
+#define RAISE           4
+#define LOWER        	5
+
+&kscan0 {
+    compatible = "zmk,kscan-mock";
+    columns = <0>;
+    rows = <0>;
+    events = <0>;
+};
+
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    sensitivity = <1400>;
+    acceleration-exponent = <1>;
+    speed-threshold = <1600>;
+    speed-max = <5000>;
+    sensor-dpi = <800>;
+
+    y-boost = <1000>;
+    max-factor = <3000>;
+    min-factor = <100>;
+};
+
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        trackpoint_split: trackpoint_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    trackpoint_listener: trackpoint_listener {
+        compatible = "zmk,input-listener";
+        status = "ok";
+        device = <&trackpoint_split>;
+
+        // <&zip_temp_layer MOUSE 1000>
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 8>;
+        
+		scroller {
+            layers = <LOWER>;  // select layer to enable
+            //process-next;
+            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
+            // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 10>, <&pointer_accel>;
+        };
+    };
+};

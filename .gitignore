@@ -1,7 +1,8 @@
-.vscode/tasks.json
-.vscode/settings.json
+.vscode/*
 
 dongle.zip
 settings_erase_dongle.sh
 flash_dongle.sh
 .vscode/c_cpp_properties.json
+
+.clangd

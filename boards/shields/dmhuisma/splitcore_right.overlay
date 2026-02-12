@@ -1,4 +1,5 @@
 #include "splitcore.dtsi"
+#include "include/mouse_tp.dtsi"
 
 &default_transform { // Offset of 8 because the left side has 8 columns
     col-offset = <8>;
@@ -7,6 +8,7 @@
 / {
 
     kscan0: kscan_composite {
+        wakeup-source;
         // matrix driver
         matrix {
             kscan = <&kscan1>;
@@ -54,6 +56,21 @@
 };
 
 &pinctrl {
+    // spi for the shift register
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 0)>;
+        };
+    };
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 0)>;
+            low-power-enable;
+        };
+    };
+
     // spi for the nice view display
     spi2_default: spi2_default {
         group1 {
@@ -70,6 +87,21 @@
     };
 };
 
+&spi1 {
+    status = "okay";
+    cs-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
+
+    shifter: 595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        spi-max-frequency = <200000>;
+        reg = <0>;
+        #gpio-cells = <2>;
+        ngpios = <8>;
+    };
+};
+
 nice_view_spi: &spi2 {
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi2_default>;
@@ -78,4 +110,6 @@ nice_view_spi: &spi2 {
     cs-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
 };
 
+
 #include "splitcore_trackpoint.dtsi"
+#include "include/mouse_tp.dtsi"

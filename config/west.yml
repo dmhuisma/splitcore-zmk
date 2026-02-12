@@ -19,7 +19,13 @@ manifest:
     - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: badjeff
       revision: main
-    - name: nice-view-battery
+    - name: nice-view-battery-peripheral
+      remote: dmhuisma
+      revision: main
+    - name: zmk_arbitrary_split_data_channel
+      remote: dmhuisma
+      revision: main
+    - name: zmk-split-status-relay
       remote: dmhuisma
       revision: main
     - name: zmk-pointing-acceleration-alpha

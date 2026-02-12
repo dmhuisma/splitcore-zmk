@@ -1,5 +1,9 @@
 
-if SHIELD_SPLITCORE_RIGHT
+#
+# Dongle
+#
+
+if SHIELD_SPLITCORE_DONGLE
 
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
@@ -11,15 +15,15 @@ config ZMK_SPLIT_ROLE_CENTRAL
 # Set this to the number of peripherals your dongle will have.
 # For a unibody, this would be 1. If you have left and right halves, set it to 2, etc.
 config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
-    default 1
+    default 2
 
 # Set this to ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS + your desired number of BT profiles (default is 5)
 config BT_MAX_CONN
-    default 6
+    default 7
 
 # Set this to the same number as BT_MAX_CONN
 config BT_MAX_PAIRED
-    default 6
+    default 7
 
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
     default y
@@ -29,12 +33,22 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
 
 endif
 
+#
+# Left and Right
+#
+
 if SHIELD_SPLITCORE_LEFT || SHIELD_SPLITCORE_RIGHT
+
+endif
+
+#
+# All
+#
 
 config ZMK_SPLIT
     default y
 
-config SPI
+config ZMK_BATTERY_REPORTING
     default y
 
 # Enable experimental BLE settings
@@ -44,8 +58,3 @@ config BT_CTLR_ADVANCED_FEATURES
 
 config ZMK_BLE_EXPERIMENTAL_CONN
     default y
-
-config ZMK_BATTERY_REPORTING
-    default y
-
-endif

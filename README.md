@@ -17,19 +17,24 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 - Display
 - Hotswappable keys
 - Potentiometer (with directional clicking) for media controls.
-
+                                                        
 ## Building
 
 The firmware is built by Github actions on every commit. It can also be built with a local install of ZMK with the following commands.
 
-> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;" -DSHIELD="splitcore_left"
+> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay" -DSHIELD="splitcore_left"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/kb_zmk_ps2_mouse_trackpoint_driver;/[path to module]/zmk-pointing-acceleration-alpha" -DSHIELD="splitcore_right nice_view"
+> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/kb_zmk_ps2_mouse_trackpoint_driver;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay;/[path to module]/nice-view-peripheral" -DSHIELD="splitcore_right nice_view_peripheral"
+
+> west build -p auto -d build/dongle -b seeeduino_xiao_ble -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;/[path to module]/zmk-pointing-acceleration-alpha;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay" -DSHIELD="splitcore_dongle"
 
 If building locally, the following external zmk modules are required on your machine:
 
 - [kb_zmk_ps2_mouse_trackpoint_driver](https://github.com/infused-kim/kb_zmk_ps2_mouse_trackpoint_driver)
 - [zmk-pointing-acceleration-alpha](https://github.com/nuovotaka/zmk-pointing-acceleration-alpha)
+- [zmk-arbitrary-split-data-channel](https://github.com/dmhuisma/zmk_arbitrary_split_data_channel)
+- [zmk-split-status-relay](https://github.com/dmhuisma/zmk-split-status-relay)
+- [nice-view-battery-peripheral](https://github.com/dmhuisma/nice-view-battery-peripheral)
 
 ## Pinout
 

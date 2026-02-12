@@ -12,14 +12,7 @@
 #define RAISE           4
 #define LOWER        	5
 
-#define HAS_MOUSE_TP
 #define USE_HOMEROW_MODS
-
-#ifdef HAS_MOUSE_TP
-  // We store the trackpoint settings in a separate file
-  // to make organization a little easier.
-  #include "include/mouse_tp.dtsi"
-#endif  // HAS_MOUSE_TP
 
 #ifdef USE_HOMEROW_MODS
 //
@@ -84,7 +77,7 @@
 
 																								&mo LOWER       &kp ESCAPE              &vscode_headersource &mo RAISE
                                                                                 &kp BACKSPACE                   &mkp LCLK               &kp DELETE                      &ht_qt RSHIFT SPACE
-                                                                                &kp HOME        &kp RALT        &mkp RCLK    	        &kp LMETA       &vscode_task    &kp END
+                                                                                &kp HOME        &kp LMETA       &mkp RCLK    	        &kp RALT        &vscode_task    &kp END
 
                                                                                                 &kp UP_ARROW                                            &kp K_MUTE
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW         &kp K_PREVIOUS                  &kp K_NEXT
@@ -105,7 +98,7 @@
 
 																								&mo LOWER       &kp ESCAPE              &vscode_headersource &mo RAISE
                                                                                 &kp BACKSPACE                   &mkp LCLK               &kp DELETE                      &ht_qt RSHIFT SPACE
-                                                                                &kp HOME        &kp RALT        &mkp RCLK    	        &kp LMETA       &vscode_task    &kp END
+                                                                                &kp HOME        &kp LMETA       &mkp RCLK    	        &kp RALT        &vscode_task    &kp END
 
                                                                                                 &kp UP_ARROW                                            &kp K_MUTE
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW         &kp K_PREVIOUS                  &kp K_NEXT
