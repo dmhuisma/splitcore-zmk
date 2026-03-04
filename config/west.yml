@@ -13,7 +13,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: main
       import: app/west.yml
     # Module for PS/2 mouse & TP driver
     - name: kb_zmk_ps2_mouse_trackpoint_driver
@@ -21,7 +21,7 @@ manifest:
       revision: main
     - name: nice-view-battery-peripheral
       remote: dmhuisma
-      revision: main
+      revision: zmk_0.4
     - name: zmk_arbitrary_split_data_channel
       remote: dmhuisma
       revision: main

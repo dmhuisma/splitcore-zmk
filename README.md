@@ -22,11 +22,11 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 
 The firmware is built by Github actions on every commit. It can also be built with a local install of ZMK with the following commands.
 
-> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay" -DSHIELD="splitcore_left"
+> west build -p auto -d build/left -b nice_nano//zmk -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay" -DSHIELD="splitcore_left"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/kb_zmk_ps2_mouse_trackpoint_driver;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay;/[path to module]/nice-view-peripheral" -DSHIELD="splitcore_right nice_view_peripheral"
+> west build -p auto -d build/right -b nice_nano//zmk -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;[path to module]/kb_zmk_ps2_mouse_trackpoint_driver;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay;/[path to module]/nice-view-peripheral" -DSHIELD="splitcore_right nice_view_peripheral"
 
-> west build -p auto -d build/dongle -b seeeduino_xiao_ble -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;/[path to module]/zmk-pointing-acceleration-alpha;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay" -DSHIELD="splitcore_dongle"
+> west build -p auto -d build/dongle -b xiao_ble//zmk -- -DZMK_EXTRA_MODULES="[path to module]/splitcore-zmk;/[path to module]/zmk-pointing-acceleration-alpha;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay" -DSHIELD="splitcore_dongle"
 
 If building locally, the following external zmk modules are required on your machine:
 
